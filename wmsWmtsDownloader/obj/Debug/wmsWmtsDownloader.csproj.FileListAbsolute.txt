@@ -1,0 +1,8 @@
+c:\users\sylwi\onedrive\dokumenty\visual studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\bin\Debug\wmsWmtsDownloader.dll
+c:\users\sylwi\onedrive\dokumenty\visual studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\bin\Debug\wmsWmtsDownloader.pdb
+c:\users\sylwi\onedrive\dokumenty\visual studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\obj\Debug\wmsWmtsDownloader.csprojResolveAssemblyReference.cache
+c:\users\sylwi\onedrive\dokumenty\visual studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\obj\Debug\wmsWmtsDownloader.dll
+c:\users\sylwi\onedrive\dokumenty\visual studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\obj\Debug\wmsWmtsDownloader.pdb
+c:\users\sylwi\onedrive\dokumenty\visual studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\obj\Debug\wmsWmtsDownloader.csproj.GenerateResource.Cache
+C:\Users\sylwi\OneDrive\Dokumenty\Visual Studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\obj\Debug\wmsWmtsDownloader.FormExportMap.resources
+C:\Users\sylwi\OneDrive\Dokumenty\Visual Studio 2015\Projects\wmsWmtsDownloader\wmsWmtsDownloader\obj\Debug\wmsWmtsDownloader.FormProgress.resources
