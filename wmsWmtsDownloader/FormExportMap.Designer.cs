@@ -52,17 +52,24 @@
             this.labelOutputImageSPX = new System.Windows.Forms.Label();
             this.labelExportScale = new System.Windows.Forms.Label();
             this.checkBoxGeoreferences = new System.Windows.Forms.CheckBox();
-            this.checkBoxTiledType = new System.Windows.Forms.CheckBox();
             this.labelTileSize = new System.Windows.Forms.Label();
             this.comboBoxTileSize = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelChooseLayer = new System.Windows.Forms.Label();
+            this.comboBoxProjectionEPSGcode = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxLayer = new System.Windows.Forms.ComboBox();
+            this.groupBoxTiledType = new System.Windows.Forms.GroupBox();
             this.groupBoxExportExtend.SuspendLayout();
             this.groupBoxCompression.SuspendLayout();
             this.groupBoxExportScale.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxTiledType.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(532, 428);
+            this.buttonNext.Location = new System.Drawing.Point(533, 535);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(124, 35);
             this.buttonNext.TabIndex = 0;
@@ -73,17 +80,18 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(680, 429);
+            this.buttonCancel.Location = new System.Drawing.Point(674, 536);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(115, 34);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // LabelResolution
             // 
             this.LabelResolution.AutoSize = true;
-            this.LabelResolution.Location = new System.Drawing.Point(24, 323);
+            this.LabelResolution.Location = new System.Drawing.Point(24, 498);
             this.LabelResolution.Name = "LabelResolution";
             this.LabelResolution.Size = new System.Drawing.Size(130, 20);
             this.LabelResolution.TabIndex = 2;
@@ -101,7 +109,7 @@
             // labelColorMode
             // 
             this.labelColorMode.AutoSize = true;
-            this.labelColorMode.Location = new System.Drawing.Point(217, 323);
+            this.labelColorMode.Location = new System.Drawing.Point(202, 498);
             this.labelColorMode.Name = "labelColorMode";
             this.labelColorMode.Size = new System.Drawing.Size(94, 20);
             this.labelColorMode.TabIndex = 4;
@@ -115,7 +123,7 @@
             "32-bit with Alpha",
             "8-bit Adaptive Palette",
             "8-bit Grayscale"});
-            this.comboBoxColorMode.Location = new System.Drawing.Point(214, 346);
+            this.comboBoxColorMode.Location = new System.Drawing.Point(206, 535);
             this.comboBoxColorMode.Name = "comboBoxColorMode";
             this.comboBoxColorMode.Size = new System.Drawing.Size(204, 28);
             this.comboBoxColorMode.TabIndex = 7;
@@ -125,7 +133,7 @@
             // 
             this.textBoxCoTopY.Location = new System.Drawing.Point(98, 25);
             this.textBoxCoTopY.Name = "textBoxCoTopY";
-            this.textBoxCoTopY.Size = new System.Drawing.Size(156, 26);
+            this.textBoxCoTopY.Size = new System.Drawing.Size(170, 26);
             this.textBoxCoTopY.TabIndex = 10;
             this.textBoxCoTopY.TextChanged += new System.EventHandler(this.textBoxCoTopY_TextChanged);
             // 
@@ -141,7 +149,7 @@
             // 
             this.textBoxCoBottomY.Location = new System.Drawing.Point(98, 111);
             this.textBoxCoBottomY.Name = "textBoxCoBottomY";
-            this.textBoxCoBottomY.Size = new System.Drawing.Size(156, 26);
+            this.textBoxCoBottomY.Size = new System.Drawing.Size(170, 26);
             this.textBoxCoBottomY.TabIndex = 12;
             this.textBoxCoBottomY.TextChanged += new System.EventHandler(this.textBoxCoBottomY_TextChanged);
             // 
@@ -175,21 +183,16 @@
             // comboBoxExtendFromLayer
             // 
             this.comboBoxExtendFromLayer.FormattingEnabled = true;
-            this.comboBoxExtendFromLayer.Items.AddRange(new object[] {
-            "<none>",
-            "<all enabled>",
-            "<all>"});
             this.comboBoxExtendFromLayer.Location = new System.Drawing.Point(16, 241);
             this.comboBoxExtendFromLayer.Name = "comboBoxExtendFromLayer";
             this.comboBoxExtendFromLayer.Size = new System.Drawing.Size(349, 28);
             this.comboBoxExtendFromLayer.TabIndex = 16;
-            this.comboBoxExtendFromLayer.Text = "<none>";
             this.comboBoxExtendFromLayer.SelectedIndexChanged += new System.EventHandler(this.comboBoxExtendFromLayer_SelectedIndexChanged);
             // 
             // checkBoxBigTIFF
             // 
             this.checkBoxBigTIFF.AutoSize = true;
-            this.checkBoxBigTIFF.Location = new System.Drawing.Point(28, 404);
+            this.checkBoxBigTIFF.Location = new System.Drawing.Point(454, 445);
             this.checkBoxBigTIFF.Name = "checkBoxBigTIFF";
             this.checkBoxBigTIFF.Size = new System.Drawing.Size(257, 24);
             this.checkBoxBigTIFF.TabIndex = 17;
@@ -206,7 +209,7 @@
             this.groupBoxExportExtend.Controls.Add(this.labelExtendFromLayer);
             this.groupBoxExportExtend.Controls.Add(this.comboBoxExtendFromLayer);
             this.groupBoxExportExtend.Controls.Add(this.textBoxCoBottomX);
-            this.groupBoxExportExtend.Location = new System.Drawing.Point(28, 12);
+            this.groupBoxExportExtend.Location = new System.Drawing.Point(28, 186);
             this.groupBoxExportExtend.Name = "groupBoxExportExtend";
             this.groupBoxExportExtend.Size = new System.Drawing.Size(382, 291);
             this.groupBoxExportExtend.TabIndex = 18;
@@ -222,7 +225,7 @@
             "200",
             "300",
             "600"});
-            this.comboBoxResolution.Location = new System.Drawing.Point(28, 346);
+            this.comboBoxResolution.Location = new System.Drawing.Point(28, 535);
             this.comboBoxResolution.Name = "comboBoxResolution";
             this.comboBoxResolution.Size = new System.Drawing.Size(167, 28);
             this.comboBoxResolution.TabIndex = 19;
@@ -299,51 +302,93 @@
             this.checkBoxGeoreferences.AutoSize = true;
             this.checkBoxGeoreferences.Checked = true;
             this.checkBoxGeoreferences.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGeoreferences.Location = new System.Drawing.Point(464, 257);
+            this.checkBoxGeoreferences.Location = new System.Drawing.Point(454, 397);
             this.checkBoxGeoreferences.Name = "checkBoxGeoreferences";
-            this.checkBoxGeoreferences.Size = new System.Drawing.Size(213, 24);
+            this.checkBoxGeoreferences.Size = new System.Drawing.Size(182, 24);
             this.checkBoxGeoreferences.TabIndex = 22;
-            this.checkBoxGeoreferences.Text = "Save georeferences (tfw)";
+            this.checkBoxGeoreferences.Text = "Save georeferences ";
             this.checkBoxGeoreferences.UseVisualStyleBackColor = true;
             this.checkBoxGeoreferences.CheckedChanged += new System.EventHandler(this.checkBoxGeoreferences_CheckedChanged);
-            // 
-            // checkBoxTiledType
-            // 
-            this.checkBoxTiledType.AutoSize = true;
-            this.checkBoxTiledType.Checked = true;
-            this.checkBoxTiledType.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTiledType.Location = new System.Drawing.Point(460, 299);
-            this.checkBoxTiledType.Name = "checkBoxTiledType";
-            this.checkBoxTiledType.Size = new System.Drawing.Size(102, 24);
-            this.checkBoxTiledType.TabIndex = 23;
-            this.checkBoxTiledType.Text = "Tiled type";
-            this.checkBoxTiledType.UseVisualStyleBackColor = true;
             // 
             // labelTileSize
             // 
             this.labelTileSize.AutoSize = true;
-            this.labelTileSize.Location = new System.Drawing.Point(456, 336);
+            this.labelTileSize.Location = new System.Drawing.Point(2, 32);
             this.labelTileSize.Name = "labelTileSize";
-            this.labelTileSize.Size = new System.Drawing.Size(134, 20);
+            this.labelTileSize.Size = new System.Drawing.Size(138, 20);
             this.labelTileSize.TabIndex = 24;
-            this.labelTileSize.Text = "Tile size (in pixels)";
+            this.labelTileSize.Text = "Tile size (in pixels):";
             // 
             // comboBoxTileSize
             // 
             this.comboBoxTileSize.FormattingEnabled = true;
-            this.comboBoxTileSize.Items.AddRange(new object[] {
-            "64x64",
-            "128x128",
-            "256x256",
-            "512x512",
-            "1024x1024",
-            "2048x2048"});
-            this.comboBoxTileSize.Location = new System.Drawing.Point(460, 359);
+            this.comboBoxTileSize.Location = new System.Drawing.Point(6, 64);
             this.comboBoxTileSize.Name = "comboBoxTileSize";
             this.comboBoxTileSize.Size = new System.Drawing.Size(329, 28);
             this.comboBoxTileSize.TabIndex = 25;
-            this.comboBoxTileSize.Text = "512x512";
             this.comboBoxTileSize.SelectedIndexChanged += new System.EventHandler(this.comboBoxTileSize_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelChooseLayer);
+            this.groupBox1.Controls.Add(this.comboBoxProjectionEPSGcode);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.comboBoxLayer);
+            this.groupBox1.Location = new System.Drawing.Point(28, 29);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(382, 151);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Layer";
+            // 
+            // labelChooseLayer
+            // 
+            this.labelChooseLayer.AutoSize = true;
+            this.labelChooseLayer.ForeColor = System.Drawing.Color.Red;
+            this.labelChooseLayer.Location = new System.Drawing.Point(181, 16);
+            this.labelChooseLayer.Name = "labelChooseLayer";
+            this.labelChooseLayer.Size = new System.Drawing.Size(184, 20);
+            this.labelChooseLayer.TabIndex = 29;
+            this.labelChooseLayer.Text = "Choose a layer to export!";
+            this.labelChooseLayer.Visible = false;
+            // 
+            // comboBoxProjectionEPSGcode
+            // 
+            this.comboBoxProjectionEPSGcode.FormattingEnabled = true;
+            this.comboBoxProjectionEPSGcode.Location = new System.Drawing.Point(16, 103);
+            this.comboBoxProjectionEPSGcode.Name = "comboBoxProjectionEPSGcode";
+            this.comboBoxProjectionEPSGcode.Size = new System.Drawing.Size(187, 28);
+            this.comboBoxProjectionEPSGcode.TabIndex = 27;
+            this.comboBoxProjectionEPSGcode.SelectedIndexChanged += new System.EventHandler(this.comboBoxProjectionEPSGcode_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Projection EPSG code:";
+            // 
+            // comboBoxLayer
+            // 
+            this.comboBoxLayer.FormattingEnabled = true;
+            this.comboBoxLayer.Location = new System.Drawing.Point(16, 42);
+            this.comboBoxLayer.Name = "comboBoxLayer";
+            this.comboBoxLayer.Size = new System.Drawing.Size(349, 28);
+            this.comboBoxLayer.TabIndex = 0;
+            this.comboBoxLayer.SelectedIndexChanged += new System.EventHandler(this.comboBoxLayer_SelectedIndexChanged);
+            // 
+            // groupBoxTiledType
+            // 
+            this.groupBoxTiledType.Controls.Add(this.labelTileSize);
+            this.groupBoxTiledType.Controls.Add(this.comboBoxTileSize);
+            this.groupBoxTiledType.Location = new System.Drawing.Point(454, 267);
+            this.groupBoxTiledType.Name = "groupBoxTiledType";
+            this.groupBoxTiledType.Size = new System.Drawing.Size(341, 118);
+            this.groupBoxTiledType.TabIndex = 27;
+            this.groupBoxTiledType.TabStop = false;
+            this.groupBoxTiledType.Text = "Tiled type";
             // 
             // FormExportMap
             // 
@@ -351,11 +396,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(826, 476);
-            this.Controls.Add(this.comboBoxTileSize);
-            this.Controls.Add(this.labelTileSize);
-            this.Controls.Add(this.checkBoxTiledType);
+            this.ClientSize = new System.Drawing.Size(818, 593);
+            this.ControlBox = false;
+            this.Controls.Add(this.groupBoxTiledType);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBoxGeoreferences);
+            this.Controls.Add(this.checkBoxBigTIFF);
             this.Controls.Add(this.groupBoxExportScale);
             this.Controls.Add(this.groupBoxCompression);
             this.Controls.Add(this.comboBoxResolution);
@@ -363,10 +409,8 @@
             this.Controls.Add(this.labelColorMode);
             this.Controls.Add(this.LabelResolution);
             this.Controls.Add(this.groupBoxExportExtend);
-            this.Controls.Add(this.checkBoxBigTIFF);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonNext);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -378,6 +422,10 @@
             this.groupBoxCompression.ResumeLayout(false);
             this.groupBoxExportScale.ResumeLayout(false);
             this.groupBoxExportScale.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBoxTiledType.ResumeLayout(false);
+            this.groupBoxTiledType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,8 +456,13 @@
         private System.Windows.Forms.Label labelOutputIS;
         private System.Windows.Forms.Label labelOutputImageSPX;
         private System.Windows.Forms.CheckBox checkBoxGeoreferences;
-        private System.Windows.Forms.CheckBox checkBoxTiledType;
         private System.Windows.Forms.Label labelTileSize;
         private System.Windows.Forms.ComboBox comboBoxTileSize;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBoxLayer;
+        private System.Windows.Forms.ComboBox comboBoxProjectionEPSGcode;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelChooseLayer;
+        private System.Windows.Forms.GroupBox groupBoxTiledType;
     }
 }

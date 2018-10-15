@@ -7,12 +7,12 @@ namespace wmsWmtsDownloader
     {
         protected override void OnClick()
         {
-            //if (!Module1.thereIsDownloadNow)
+            if (!Module1.thereIsDownloadNow)
             {
                 FormExportMap formExportMap = new FormExportMap();
                 formExportMap.ShowDialog();
             }
-            /*else
+            else
             {
                 MessageBox.Show("Please wait for the previous download to finish.");
             }
@@ -20,7 +20,7 @@ namespace wmsWmtsDownloader
             {
                 Module1.thereIsDownloadNow = true;
                 Application.Run(new FormProgress());
-            }*/
+            }
            
 
         }
